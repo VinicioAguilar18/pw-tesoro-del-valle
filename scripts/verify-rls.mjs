@@ -54,8 +54,14 @@ async function main() {
   await check('anon → property_secrets', () => anonClient.from('property_secrets').select('*'), true);
   await check('anon → guide_sections', () => anonClient.from('guide_sections').select('*'), true);
   await check('anon → recommendations', () => anonClient.from('recommendations').select('*'), true);
-  // feedback: anón puede insertar pero no seleccionar
+  // feedback: anónimo no debe poder seleccionar ni insertar
   await check('anon → feedback (select)', () => anonClient.from('feedback').select('*'), true);
+  await check('anon → feedback (insert)', async () => {
+    const res = await anonClient.from('feedback').insert([{ property_id: '00000000-0000-0000-0000-000000000001', rating: 5 }]);
+    // Si la inserción falla por RLS, data es null y error no es null.
+    // check() considera exitoso si !data || data.length === 0, lo cual ocurre cuando hay error.
+    return res;
+  }, true);
 
   console.log('\n── Cliente SERVICE_ROLE (debe ver datos) ──');
   await check('service → properties', () => serviceClient.from('properties').select('*'), false);

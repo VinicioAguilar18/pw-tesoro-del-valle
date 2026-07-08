@@ -56,13 +56,10 @@ create policy "recommendations: solo autenticado puede modificar"
   using (auth.role() = 'authenticated');
 
 -- ─────────────────────────────────────────────────────────────────────────────
--- feedback: anónimo puede INSERT (vía endpoint server-side con zod)
--- Solo anfitrión autenticado puede SELECT (ver feedback en /admin)
+-- feedback: cero acceso anónimo.
+-- Solo anfitrión autenticado puede SELECT y DELETE.
+-- Las inserciones las hace el endpoint (server-side con service_role).
 -- ─────────────────────────────────────────────────────────────────────────────
-create policy "feedback: anónimo puede insertar"
-  on public.feedback for insert
-  with check (true);
-
 create policy "feedback: solo autenticado puede leer"
   on public.feedback for select
   using (auth.role() = 'authenticated');
