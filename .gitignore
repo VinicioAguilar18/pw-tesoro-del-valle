@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+# temp / scripts
+/.tmp-photos
+
+
 # testing
 /coverage
 
