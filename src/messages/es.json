@@ -3,8 +3,8 @@
     "siteName": "Tesoro del Valle",
     "nav": {
       "home": "Inicio",
-      "accommodation": "El alojamiento",
-      "zone": "La zona",
+      "accommodation": "Alojamientos",
+      "activities": "Actividades",
       "location": "Ubicación",
       "book": "Reservar"
     },

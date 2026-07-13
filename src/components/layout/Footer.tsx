@@ -5,11 +5,11 @@ export default function Footer() {
   const siteName = useTranslations('Layout')('siteName');
 
   return (
-    <footer className="w-full border-t border-primary/10 bg-white py-8 px-4 mt-auto">
+    <footer className="w-full border-t border-primary/10 bg-background py-8 px-4 mt-auto">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4 md:px-8">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-lg font-serif font-bold text-primary">
-            {siteName} <span className="text-sm">🐸</span>
+            {siteName}
           </span>
           <p className="text-sm text-text-secondary text-center md:text-left font-sans italic">
             &ldquo;{t('tagline')}&rdquo;

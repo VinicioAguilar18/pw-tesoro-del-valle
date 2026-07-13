@@ -18,7 +18,7 @@
 | **Propuesta de valor** | Web premium con fotos animadas (parallax estilo Apple) que vende la experiencia — jacuzzi privado, tucanes, perezosos, ranas Blue Jeans, Volcán Arenal — y un **Concierge Digital** por alojamiento: un link, cero fricción, toda la estadía resuelta. |
 
 ### Funcionalidades Principales (Imprescindibles)
-1. **Landing pública de Tesoro del Valle** con hero, galería parallax, presentación del Alojamiento La Rana ("El espacio"), "La zona y actividades" (Volcán Arenal, Catarata La Fortuna, aguas termales, puentes colgantes), ubicación con mapa + botones **Waze** y **Google Maps**, y CTA a reservar en Airbnb (`airbnb.com/h/luxuryrainforestretreat`). Preparada para listar más alojamientos a futuro.
+1. **Landing pública de Tesoro del Valle** con hero, galería parallax, presentación del Alojamiento La Rana ("El espacio"), "La zona y actividades" (Volcán Arenal, Catarata La Fortuna, aguas termales, puentes colgantes), ubicación con mapa + botones **Waze** y **Google Maps**, sección **"Alojamientos destacados"** al final de la landing (tarjeta grande de La Rana + reseñas publicadas + botón "Ver todas las reseñas en Airbnb ↗" → `{airbnb_url}/reviews`), y CTA a reservar en Airbnb (`airbnb.com/h/luxuryrainforestretreat`). Preparada para listar más alojamientos a futuro. Las reseñas mostradas se gestionan desde `/admin` (alcance de Fase 7).
 2. **Concierge Digital del huésped** en `/g/[CODIGO]` — el código viaja **en el link** (el huésped no escribe nada). Estructura calcada de la referencia visual aprobada:
    - **Hero**: foto del alojamiento, badge "VALLE AZUL · COSTA RICA", nombre "LA RANA", "Bienvenido a tu estancia / Welcome to your stay".
    - **Tarjeta destacada de Entrada**: hora de check-in ("3:00 PM en adelante") + "Toca aquí para ver tu código de acceso" (revela clave de la puerta).
@@ -256,11 +256,23 @@ Contraste AA, base 16px+, foco visible, alt bilingüe en fotos, labels reales.
 |---|---|
 | id uuid PK · property_id FK → properties.id · rating int 1–5 · liked_most text · to_improve text · guide_clarity text (`si`/`mas_o_menos`/`no`) · would_return text (`si`/`tal_vez`/`no`) · guest_name text nullable · created_at timestamptz |
 
+**`reviews`** — reseñas curadas para la sección "Alojamientos destacados" de la landing
+| columna | tipo | notas |
+|---|---|---|
+| id | uuid PK | |
+| property_id | uuid FK → properties.id | |
+| author_name | text | |
+| rating | int 1–5 | |
+| text_es / text_en | text | |
+| review_date | date | |
+| is_published | boolean | solo las publicadas se muestran en la landing |
+| sort_order | int | |
+
 ### Relaciones
-`property_secrets`, `guide_sections`, `recommendations`, `feedback` → todas cuelgan de `properties.id` (muchos a uno). Agregar un alojamiento nuevo = 1 fila en `properties` + sus hijos.
+`property_secrets`, `guide_sections`, `recommendations`, `feedback`, `reviews` → todas cuelgan de `properties.id` (muchos a uno). Agregar un alojamiento nuevo = 1 fila en `properties` + sus hijos.
 
 ### Seguridad (crítico)
-- **RLS activado en TODAS las tablas.** Cliente anónimo: **cero acceso directo** a `properties`, `property_secrets` y demás.
+- **RLS activado en TODAS las tablas.** Cliente anónimo: **cero acceso directo** a `properties`, `property_secrets` y demás. La landing lee `reviews` publicadas **server-side** (service role), igual patrón que `/g/[code]`.
 - Lectura del Concierge: **solo server-side** (service role) en `/g/[code]` → busca `properties where access_code = code AND is_active` → si no existe, 404. Las secrets solo se incluyen si el código validó.
 - `feedback`: insert solo vía endpoint server-side con validación zod; select solo anfitrión autenticado.
 - Escrituras de admin: Server Actions protegidas por sesión Supabase Auth.
@@ -291,7 +303,7 @@ Bucket `photos` (público solo lectura): `/{property_slug}/gallery/`, `/{propert
 
 **Fase 6 — Feedback** · Formulario (estrellas + preguntas aprobadas), zod, guardado + correo Resend, pantalla de gracias. ✅ *Hecho cuando: una respuesta de prueba llega a la tabla Y al correo.*
 
-**Fase 7 — Panel /admin** · Login Supabase Auth, sidebar, CRUD alojamientos (incl. cambiar/regenerar código de acceso y copiar link listo para enviar), secrets, secciones ES/EN, recomendaciones/experiencias, listado de feedback por alojamiento. ✅ *Hecho cuando: el anfitrión cambia el código y el link viejo muere al instante; puede copiar el link nuevo en un clic.*
+**Fase 7 — Panel /admin** · Login Supabase Auth, sidebar, CRUD alojamientos (incl. cambiar/regenerar código de acceso y copiar link listo para enviar), secrets, secciones ES/EN, recomendaciones/experiencias, **reseñas** (`reviews`: agregar/editar/publicar-despublicar, orden), listado de feedback por alojamiento. ✅ *Hecho cuando: el anfitrión cambia el código y el link viejo muere al instante; puede copiar el link nuevo en un clic; puede publicar/despublicar una reseña y el cambio se refleja en la landing.*
 
 **Fase 8 — Pulido** · Estados vacíos/error/carga, responsive fino, accesibilidad, SEO de la landing (metadatos ES/EN + Open Graph con foto), favicon 🐸. ✅ *Hecho cuando: Lighthouse ≥90 en Performance/Accesibilidad/SEO móvil.*
 

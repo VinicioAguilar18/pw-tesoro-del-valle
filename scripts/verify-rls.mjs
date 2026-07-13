@@ -54,6 +54,7 @@ async function main() {
   await check('anon → property_secrets', () => anonClient.from('property_secrets').select('*'), true);
   await check('anon → guide_sections', () => anonClient.from('guide_sections').select('*'), true);
   await check('anon → recommendations', () => anonClient.from('recommendations').select('*'), true);
+  await check('anon → reviews', () => anonClient.from('reviews').select('*'), true);
   // feedback: anónimo no debe poder seleccionar ni insertar
   await check('anon → feedback (select)', () => anonClient.from('feedback').select('*'), true);
   await check('anon → feedback (insert)', async () => {
@@ -68,6 +69,7 @@ async function main() {
   await check('service → property_secrets', () => serviceClient.from('property_secrets').select('*'), false);
   await check('service → guide_sections', () => serviceClient.from('guide_sections').select('*'), false);
   await check('service → recommendations', () => serviceClient.from('recommendations').select('*'), false);
+  await check('service → reviews', () => serviceClient.from('reviews').select('*'), false);
 
   console.log(`\n${'─'.repeat(50)}`);
   if (failed === 0) {

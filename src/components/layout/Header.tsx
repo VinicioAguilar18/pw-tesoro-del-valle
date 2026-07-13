@@ -22,7 +22,7 @@ export default function Header() {
   const navItems = [
     { label: t('home'), href: '#home' },
     { label: t('accommodation'), href: '#accommodation' },
-    { label: t('zone'), href: '#zone' },
+    { label: t('activities'), href: '#activities' },
     { label: t('location'), href: '#location' },
   ];
 
@@ -32,7 +32,7 @@ export default function Header() {
         {/* Logo / Brand Name */}
         <div className="flex items-center gap-2">
           <span className="text-xl md:text-2xl font-serif font-bold text-primary tracking-wide">
-            Tesoro del Valle <span className="text-sm align-middle">🐸</span>
+            Tesoro del Valle
           </span>
         </div>
 

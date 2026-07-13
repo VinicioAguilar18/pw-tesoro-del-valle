@@ -20,6 +20,8 @@ const migrations = [
   '20260708_001_create_tables.sql',
   '20260708_002_enable_rls.sql',
   '20260708_003_seed_property.sql',
+  '20260712_004_create_reviews.sql',
+  '20260712_005_seed_reviews.sql',
 ];
 
 async function runSQL(sql, name) {

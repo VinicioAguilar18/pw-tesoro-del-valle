@@ -49,9 +49,9 @@ export default function Home() {
         </p>
       </section>
 
-      <section id="zone" className="w-full max-w-4xl border-t border-primary/10 pt-20 pb-12 my-12">
+      <section id="activities" className="w-full max-w-4xl border-t border-primary/10 pt-20 pb-12 my-12">
         <h2 className="text-3xl font-serif font-bold text-primary mb-4 text-center">
-          {navT('zone')}
+          {navT('activities')}
         </h2>
         <p className="text-center text-text-secondary max-w-lg mx-auto font-sans">
           Próximamente: Actividades en la zona de Valle Azul, La Fortuna y Volcán Arenal.
