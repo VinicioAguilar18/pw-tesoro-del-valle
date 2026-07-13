@@ -1,0 +1,25 @@
+{
+  "Layout": {
+    "siteName": "Tesoro del Valle",
+    "nav": {
+      "home": "Home",
+      "accommodation": "The accommodation",
+      "zone": "The area",
+      "location": "Location",
+      "book": "Book now"
+    },
+    "footer": {
+      "tagline": "True luxury is waking up to birdsong.",
+      "airbnbLabel": "View on Airbnb",
+      "airbnbUrl": "https://airbnb.com/h/luxuryrainforestretreat",
+      "rights": "All rights reserved."
+    }
+  },
+  "Landing": {
+    "hero": {
+      "welcome": "Welcome to Tesoro del Valle",
+      "subtitle": "A peaceful retreat in Valle Azul, San Carlos",
+      "tagline": "True luxury is waking up to birdsong."
+    }
+  }
+}
