@@ -2,6 +2,7 @@
 -- Migración 002: Row Level Security (RLS) completo
 -- Proyecto: Tesoro del Valle — Concierge Digital
 -- SEGURIDAD CRÍTICA: cliente anónimo = cero acceso directo
+-- Idempotente: se puede volver a ejecutar sin error (drop if exists + create).
 -- =============================================================================
 
 -- ─────────────────────────────────────────────────────────────────────────────
@@ -18,10 +19,12 @@ alter table public.feedback         enable row level security;
 -- El Concierge se sirve server-side con service_role (bypass RLS).
 -- El anfitrión autenticado puede leer y escribir sus propiedades.
 -- ─────────────────────────────────────────────────────────────────────────────
+drop policy if exists "properties: solo autenticado puede leer" on public.properties;
 create policy "properties: solo autenticado puede leer"
   on public.properties for select
   using (auth.role() = 'authenticated');
 
+drop policy if exists "properties: solo autenticado puede modificar" on public.properties;
 create policy "properties: solo autenticado puede modificar"
   on public.properties for all
   using (auth.role() = 'authenticated');
@@ -36,10 +39,12 @@ create policy "properties: solo autenticado puede modificar"
 -- ─────────────────────────────────────────────────────────────────────────────
 -- guide_sections: anónimo NO puede leer; autenticado (admin) sí
 -- ─────────────────────────────────────────────────────────────────────────────
+drop policy if exists "guide_sections: solo autenticado puede leer" on public.guide_sections;
 create policy "guide_sections: solo autenticado puede leer"
   on public.guide_sections for select
   using (auth.role() = 'authenticated');
 
+drop policy if exists "guide_sections: solo autenticado puede modificar" on public.guide_sections;
 create policy "guide_sections: solo autenticado puede modificar"
   on public.guide_sections for all
   using (auth.role() = 'authenticated');
@@ -47,10 +52,12 @@ create policy "guide_sections: solo autenticado puede modificar"
 -- ─────────────────────────────────────────────────────────────────────────────
 -- recommendations: anónimo NO puede leer; autenticado (admin) sí
 -- ─────────────────────────────────────────────────────────────────────────────
+drop policy if exists "recommendations: solo autenticado puede leer" on public.recommendations;
 create policy "recommendations: solo autenticado puede leer"
   on public.recommendations for select
   using (auth.role() = 'authenticated');
 
+drop policy if exists "recommendations: solo autenticado puede modificar" on public.recommendations;
 create policy "recommendations: solo autenticado puede modificar"
   on public.recommendations for all
   using (auth.role() = 'authenticated');
@@ -60,10 +67,12 @@ create policy "recommendations: solo autenticado puede modificar"
 -- Solo anfitrión autenticado puede SELECT y DELETE.
 -- Las inserciones las hace el endpoint (server-side con service_role).
 -- ─────────────────────────────────────────────────────────────────────────────
+drop policy if exists "feedback: solo autenticado puede leer" on public.feedback;
 create policy "feedback: solo autenticado puede leer"
   on public.feedback for select
   using (auth.role() = 'authenticated');
 
+drop policy if exists "feedback: solo autenticado puede eliminar" on public.feedback;
 create policy "feedback: solo autenticado puede eliminar"
   on public.feedback for delete
   using (auth.role() = 'authenticated');

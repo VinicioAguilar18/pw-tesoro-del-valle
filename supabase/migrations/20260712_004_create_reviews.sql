@@ -27,10 +27,12 @@ create table if not exists public.reviews (
 -- ─────────────────────────────────────────────────────────────────────────────
 alter table public.reviews enable row level security;
 
+drop policy if exists "reviews: solo autenticado puede leer" on public.reviews;
 create policy "reviews: solo autenticado puede leer"
   on public.reviews for select
   using (auth.role() = 'authenticated');
 
+drop policy if exists "reviews: solo autenticado puede modificar" on public.reviews;
 create policy "reviews: solo autenticado puede modificar"
   on public.reviews for all
   using (auth.role() = 'authenticated');
