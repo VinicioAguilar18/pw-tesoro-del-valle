@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Montserrat, Lora } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import DecorativeBackground from '@/components/ui/DecorativeBackground';
 import '../globals.css';
 
-const fraunces = Fraunces({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
-const inter = Inter({
+const lora = Lora({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-lora',
   display: 'swap',
 });
 
@@ -36,10 +37,11 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
+      className={`${montserrat.variable} ${lora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-secondary/30">
         <NextIntlClientProvider messages={messages}>
+          <DecorativeBackground />
           <Header />
           <div className="flex flex-col flex-1">{children}</div>
           <Footer />

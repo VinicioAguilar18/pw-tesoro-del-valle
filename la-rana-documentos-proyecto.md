@@ -265,6 +265,7 @@ Contraste AA, base 16px+, foco visible, alt bilingüe en fotos, labels reales.
 | rating | int 1–5 | |
 | text_es / text_en | text | |
 | review_date | date | |
+| review_url | text nullable | deep-link a la reseña en Airbnb (`https://www.airbnb.co.cr/rooms/{id}?scroll_to_review={review_id}`); si es null, la tarjeta no es clickeable |
 | is_published | boolean | solo las publicadas se muestran en la landing |
 | sort_order | int | |
 

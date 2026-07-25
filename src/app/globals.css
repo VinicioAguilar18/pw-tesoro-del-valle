@@ -10,10 +10,10 @@
   --color-accent: #E63946;
 
   /* Font mappings from Next.js google fonts */
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-fraunces), serif;
-  --font-fraunces: var(--font-fraunces), serif;
-  --font-inter: var(--font-inter), sans-serif;
+  --font-sans: var(--font-lora), serif;
+  --font-serif: var(--font-montserrat), sans-serif;
+  --font-montserrat: var(--font-montserrat), sans-serif;
+  --font-lora: var(--font-lora), serif;
 }
 
 /* Custom base styles */

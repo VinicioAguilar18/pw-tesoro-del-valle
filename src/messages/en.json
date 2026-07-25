@@ -20,6 +20,97 @@
       "welcome": "Welcome to Tesoro del Valle",
       "subtitle": "A peaceful retreat in Valle Azul, San Carlos",
       "tagline": "True luxury is waking up to birdsong."
+    },
+    "space": {
+      "title": "The space",
+      "subtitle": "Every corner designed to help you unwind",
+      "amenities": {
+        "jacuzzi": "Private jacuzzi",
+        "kitchen": "Fully equipped kitchen",
+        "terrace": "Outdoor terrace",
+        "wifi": "High-speed WiFi",
+        "parking": "Private parking",
+        "nature": "Surrounded by nature"
+      }
+    },
+    "activities": {
+      "title": "Activities",
+      "subtitle": "The best of Valle Azul and La Fortuna, minutes from your stay"
+    },
+    "location": {
+      "title": "Location",
+      "subtitle": "Valle Azul, San Carlos, Costa Rica",
+      "openWaze": "Open in Waze",
+      "openGoogleMaps": "Open in Google Maps"
+    },
+    "featured": {
+      "title": "Featured accommodations",
+      "subtitle": "Today at Tesoro del Valle",
+      "reviewsCta": "See all reviews on Airbnb ↗"
     }
+  },
+  "Concierge": {
+    "badge": "VALLE AZUL · COSTA RICA",
+    "welcome": "Welcome to your stay",
+    "checkin": "Check-in",
+    "checkinFrom": "from",
+    "entry": {
+      "title": "Entry",
+      "reveal": "Tap here to see your access code",
+      "doorCode": "Door code"
+    },
+    "wifi": {
+      "title": "WiFi",
+      "reveal": "Tap here to see the WiFi details",
+      "network": "Network",
+      "password": "Password"
+    },
+    "copy": "Copy",
+    "copied": "Copied!",
+    "unavailable": "Your host hasn't set this up yet. Message them directly.",
+    "close": "Close",
+    "recommendations": {
+      "title": "Restaurants, tours and activities",
+      "subtitle": "Recommendations near your stay",
+      "howToGetThere": "How to get there",
+      "groups": {
+        "food": "Restaurants and food",
+        "tours": "Tours and activities",
+        "services": "Services"
+      }
+    },
+    "notFound": {
+      "title": "This link is no longer active",
+      "message": "Message your host to get the correct link for your stay.",
+      "backHome": "Back to home"
+    },
+    "feedback": {
+      "title": "How was your stay?",
+      "subtitle": "Your feedback helps us improve",
+      "rating": "Rating",
+      "likedMost": "What did you enjoy most?",
+      "toImprove": "What can we improve?",
+      "guideClarity": "Was the guide clear?",
+      "wouldReturn": "Would you return or recommend us?",
+      "optionYes": "Yes",
+      "optionSomewhat": "Somewhat",
+      "optionNo": "No",
+      "optionMaybe": "Maybe",
+      "name": "Your name (optional)",
+      "submit": "Submit",
+      "submitting": "Submitting…",
+      "successTitle": "Thanks for your feedback!",
+      "successMessage": "Your feedback helps us improve the stay for future guests.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "Places": {
+    "servicesTitle": "Restaurants, tours and activities",
+    "servicesSubtitle": "Everything nearby Tesoro del Valle",
+    "howToGetThere": "How to get there",
+    "backToServices": "← Back to services",
+    "notFound": "Place not found.",
+    "galleryTitle": "Gallery — La Rana",
+    "galleryBack": "← Back to home"
   }
 }

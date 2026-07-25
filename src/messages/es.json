@@ -20,6 +20,97 @@
       "welcome": "Bienvenido a Tesoro del Valle",
       "subtitle": "Un refugio de paz en Valle Azul, San Carlos",
       "tagline": "El verdadero lujo es despertar con el canto de las aves."
+    },
+    "space": {
+      "title": "El espacio",
+      "subtitle": "Cada rincón pensado para desconectar",
+      "amenities": {
+        "jacuzzi": "Jacuzzi privado",
+        "kitchen": "Cocina equipada",
+        "terrace": "Terraza al aire libre",
+        "wifi": "WiFi de alta velocidad",
+        "parking": "Parqueo privado",
+        "nature": "Rodeado de naturaleza"
+      }
+    },
+    "activities": {
+      "title": "Actividades",
+      "subtitle": "Lo mejor de Valle Azul y La Fortuna, a minutos de tu estadía"
+    },
+    "location": {
+      "title": "Ubicación",
+      "subtitle": "Valle Azul, San Carlos, Costa Rica",
+      "openWaze": "Abrir en Waze",
+      "openGoogleMaps": "Abrir en Google Maps"
+    },
+    "featured": {
+      "title": "Alojamientos destacados",
+      "subtitle": "Hoy en Tesoro del Valle",
+      "reviewsCta": "Ver todas las reseñas en Airbnb ↗"
     }
+  },
+  "Concierge": {
+    "badge": "VALLE AZUL · COSTA RICA",
+    "welcome": "Bienvenido a tu estancia",
+    "checkin": "Check-in",
+    "checkinFrom": "desde las",
+    "entry": {
+      "title": "Entrada",
+      "reveal": "Toca aquí para ver tu código de acceso",
+      "doorCode": "Código de la puerta"
+    },
+    "wifi": {
+      "title": "WiFi",
+      "reveal": "Toca aquí para ver los datos del WiFi",
+      "network": "Red",
+      "password": "Contraseña"
+    },
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "unavailable": "Tu anfitrión todavía no configuró este dato. Escríbele directamente.",
+    "close": "Cerrar",
+    "recommendations": {
+      "title": "Restaurantes, tours y actividades",
+      "subtitle": "Recomendaciones cerca de tu estadía",
+      "howToGetThere": "Cómo llegar",
+      "groups": {
+        "food": "Restaurantes y comida",
+        "tours": "Tours y actividades",
+        "services": "Servicios"
+      }
+    },
+    "notFound": {
+      "title": "Este link ya no está activo",
+      "message": "Escríbele a tu anfitrión para conseguir el link correcto de tu estadía.",
+      "backHome": "Volver al inicio"
+    },
+    "feedback": {
+      "title": "¿Cómo estuvo tu estadía?",
+      "subtitle": "Tu opinión nos ayuda a mejorar",
+      "rating": "Calificación",
+      "likedMost": "¿Qué disfrutaste más?",
+      "toImprove": "¿Qué podemos mejorar?",
+      "guideClarity": "¿La guía fue clara?",
+      "wouldReturn": "¿Volverías o recomendarías?",
+      "optionYes": "Sí",
+      "optionSomewhat": "Más o menos",
+      "optionNo": "No",
+      "optionMaybe": "Tal vez",
+      "name": "Tu nombre (opcional)",
+      "submit": "Enviar",
+      "submitting": "Enviando…",
+      "successTitle": "¡Gracias por tu feedback!",
+      "successMessage": "Tu opinión nos ayuda a mejorar la estadía de futuros huéspedes.",
+      "error": "Algo salió mal. Intenta de nuevo."
+    }
+  },
+  "Places": {
+    "servicesTitle": "Restaurantes, tours y actividades",
+    "servicesSubtitle": "Todo lo que hay cerca de Tesoro del Valle",
+    "howToGetThere": "Cómo llegar",
+    "backToServices": "← Volver a servicios",
+    "notFound": "Lugar no encontrado.",
+    "galleryTitle": "Galería — Alojamiento La Rana",
+    "galleryBack": "← Volver al inicio"
   }
 }

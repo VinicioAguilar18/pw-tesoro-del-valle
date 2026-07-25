@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { usePathname, useRouter } from '@/i18n/routing';
+import Image from 'next/image';
+import { Link, usePathname, useRouter } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
 import { Menu, X, Globe } from 'lucide-react';
 
@@ -29,12 +30,17 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-primary/10 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between p-4 md:px-8">
-        {/* Logo / Brand Name */}
-        <div className="flex items-center gap-2">
-          <span className="text-xl md:text-2xl font-serif font-bold text-primary tracking-wide">
-            Tesoro del Valle
-          </span>
-        </div>
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo-tesoro-del-valle.png"
+            alt="Tesoro del Valle"
+            width={417}
+            height={96}
+            priority
+            className="h-10 w-auto md:h-14"
+          />
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
