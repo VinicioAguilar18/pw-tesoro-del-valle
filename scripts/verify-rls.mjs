@@ -30,7 +30,7 @@ let passed = 0;
 let failed = 0;
 
 async function check(name, fn, expectEmpty) {
-  const { data, error } = await fn();
+  const { data } = await fn();
   const isEmpty = !data || data.length === 0;
   const ok = expectEmpty ? isEmpty : !isEmpty;
 

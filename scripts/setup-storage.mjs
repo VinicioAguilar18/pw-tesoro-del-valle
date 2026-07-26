@@ -11,7 +11,7 @@ import { config } from 'dotenv';
 import { resolve, dirname, join, extname, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { createClient } from '@supabase/supabase-js';
-import { createReadStream, existsSync } from 'fs';
+import { existsSync } from 'fs';
 import { readdir, readFile } from 'fs/promises';
 import { exec } from 'child_process';
 import { promisify } from 'util';
